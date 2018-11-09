@@ -1,0 +1,13 @@
+table, th, td {
+  text-align: center;
+}
+
+table, th, td {
+  border-collapse: collapse;
+  border: 2px solid black;
+  font-family: arial;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

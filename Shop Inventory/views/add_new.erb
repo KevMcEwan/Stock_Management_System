@@ -1,0 +1,61 @@
+<form method="post" action="/products">
+  <label for="name-field">Name:</label>
+  <input
+  type="text"
+  name="name"
+  id="name-field"
+  />
+
+  <label for="description-field">Description:</label>
+  <input
+  type="text"
+  name="description"
+  id="description-field"
+  />
+
+  <label for="quantity-field">Quantity:</label>
+  <input
+  type="number"
+  name="quantity"
+  id="quantity-field"
+  />
+
+  <label for="supply-cost-field">Supply Cost:</label>
+  <input
+  type="number"
+  step="0.01"
+  name="supply-cost"
+  id="supply-cost-field"
+  />
+
+  <label for="customer-price-field">Customer Price:</label>
+  <input
+  type="number"
+  step="0.01"
+  name="customer-price"
+  id="customer-price-field"
+  />
+
+  <label for="product-type-field">Select a Product Type:</label>
+  <select name="product-type" id="product-type">
+    <option value="Tinned Foods">Tinned Foods</option>
+    <option value="Fresh Foods">Fresh Foods</option>
+    <option value="Frozen Foods">Frozen Foods</option>
+    <option value="Soft Drinks">Soft Drinks</option>
+    <option value="Alcoholic Drinks">Alcholic Drinks</option>
+    <option value="Dairy">Dairy</option>
+    <option value="Bathroom">Fresh Foods</option>
+    <option value="Food Cupboard">Food Cupboard</option>
+    <option value="Confectionary">Confectionary</option>
+    <option value="Snacks">Snacks</option>
+  </select>
+
+  <label for="desired-quantity-field">Desired Quantity:</label>
+  <input
+  type="number"
+  name="desired-quantity"
+  id="desired-quantity-field"
+  />
+
+  <input type="submit" value="Add New Product">
+</form>
