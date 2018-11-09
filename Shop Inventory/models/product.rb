@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Product
 
-attr_reader :name, :description, :quantity, :supply_cost, :customer_price, :product_type, :desired_quantity
+attr_reader :name, :description, :quantity, :supply_cost, :customer_price, :product_type, :desired_quantity, :id
 
   def initialize( options )
     @id = options['id'].to_i

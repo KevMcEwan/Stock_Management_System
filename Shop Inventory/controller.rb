@@ -31,7 +31,7 @@ post '/products/add_new' do
 end
 
 post '/products/:id/delete' do
-  product = Product.find( params[:id] )
-  product.delete()
+  @product = Product.find( params[:id] )
+  @product.delete()
   redirect to '/products'
 end
