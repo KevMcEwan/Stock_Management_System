@@ -5,7 +5,7 @@ class TestProduct < MiniTest::Test
 
   def setup
    options = {"id" => 1, "name" => "Baked Beans", "description" => "420g",
-   "quantity" => "1", "buying_cost" =>  "0.20", "customer_price" => "0.30", "product_type" => "tinned foods", "desired_quantity" => "15"}
+   "quantity" => "1", "supply_cost" =>  "0.20", "customer_price" => "0.30", "product_type" => "tinned foods", "desired_quantity" => "15"}
 
    @product = Product.new(options)
   end
@@ -28,9 +28,9 @@ class TestProduct < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-  def test_buying_cost
+  def test_supply_cost
     expected = 0.20
-    actual = @product.buying_cost
+    actual = @product.supply_cost.round(2)
     assert_equal(expected, actual)
   end
 
@@ -66,7 +66,7 @@ class TestProduct < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-
+  
 
 
 end

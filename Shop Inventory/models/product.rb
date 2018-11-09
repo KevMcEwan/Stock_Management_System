@@ -9,7 +9,7 @@ attr_reader :name, :description, :quantity, :supply_cost, :customer_price, :prod
     @name = options['name']
     @description = options['description']
     @quantity = options['quantity'].to_i
-    @supply_cost = options['buying_cost'].to_f
+    @supply_cost = options['supply_cost'].to_f
     @customer_price = options['customer_price'].to_f
     @product_type = options['product_type']
     @desired_quantity = options['desired_quantity'].to_i
@@ -73,6 +73,8 @@ attr_reader :name, :description, :quantity, :supply_cost, :customer_price, :prod
     values = [@name, @description, @quantity, @supply_cost, @customer_price, @product_type, @desired_quantity, @id]
     SqlRunner.run(sql, values)
   end
+
+  p Product.find(7)
 
 
 
