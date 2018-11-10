@@ -15,10 +15,10 @@ get '/products' do
   erb( :index )
 end
 
-get '/products/:id' do
-  @product = Product.find( params[:id] )
-  erb( :"/productinfo" )
+get '/manufacturers' do
+  erb (:manufacturers)
 end
+
 
 get '/products/add_new' do
   erb( :"/add_new" )
@@ -30,8 +30,25 @@ post '/products/add_new' do
   redirect to '/products'
 end
 
-post '/products/:id/delete' do
+get '/products/:id' do
   @product = Product.find( params[:id] )
-  @product.delete()
+  erb( :"/productinfo" )
+end
+
+
+get '/products/:id/edit' do
+  @product = Product.find( params[:id] )
+  erb( :edit )
+end
+
+post '/products/:id' do
+  @product = Product.find(params[:id])
+  @product.update
+  redirect to '/products'
+end
+
+post '/products/:id/delete' do
+  product = Product.find( params[:id] )
+  product.delete()
   redirect to '/products'
 end

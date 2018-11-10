@@ -23,3 +23,10 @@ Product Info page
     <td><%= @product.desired_quantity %></td>
   </tr>
 </table>
+
+
+<p><a href="/products/<%= @product.id %>/edit">Edit Product</a></p>
+
+<form method="post" action="/products/<%= @product.id %>/delete">
+  <input type="submit" value="Delete Product"/>
+</form>
