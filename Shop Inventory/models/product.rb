@@ -2,9 +2,9 @@ require_relative('../db/sql_runner')
 
 class Product
 
-attr_reader :id
+  attr_reader :id
 
-attr_accessor :name, :description, :quantity, :supply_cost, :customer_price, :product_type, :desired_quantity
+  attr_accessor :name, :description, :quantity, :supply_cost, :customer_price, :product_type, :desired_quantity
 
   def initialize( options )
     @id = options['id'].to_i
@@ -17,10 +17,7 @@ attr_accessor :name, :description, :quantity, :supply_cost, :customer_price, :pr
     @desired_quantity = options['desired_quantity'].to_f
   end
 
-  def markup
-    result = @supply_cost/@customer_price
-    result.round(2)
-  end
+
 
   def low_stock
     result = @quantity.to_f/@desired_quantity.to_f
@@ -31,14 +28,18 @@ attr_accessor :name, :description, :quantity, :supply_cost, :customer_price, :pr
   end
 
   def save()
-    sql = "INSERT INTO products
-    (name, description, quantity, supply_cost, customer_price, product_type, desired_quantity)
-    VALUES
-    ($1, $2, $3, $4, $5, $6, $7)
-    RETURNING id"
-    values = [@name, @description, @quantity, @supply_cost, @customer_price, @product_type, @desired_quantity]
-    results = SqlRunner.run(sql, values)
-    @id = results.first['id'].to_i
+    if @customer_price > @supply_cost
+      sql = "INSERT INTO products
+      (name, description, quantity, supply_cost, customer_price, product_type, desired_quantity)
+      VALUES
+      ($1, $2, $3, $4, $5, $6, $7)
+      RETURNING id"
+      values = [@name, @description, @quantity, @supply_cost, @customer_price, @product_type, @desired_quantity]
+      results = SqlRunner.run(sql, values)
+      @id = results.first['id'].to_i
+    else
+      p "Cannot sell for less than supply cost"
+    end
   end
 
   def self.delete_all()
@@ -68,17 +69,20 @@ attr_accessor :name, :description, :quantity, :supply_cost, :customer_price, :pr
   end
 
   def update
-    sql = "UPDATE products SET (name, description, quantity, supply_cost, customer_price, product_type, desired_quantity) =
-    ($1, $2, $3, $4, $5, $6, $7)
-    WHERE id = $8"
-    values = [@name, @description, @quantity, @supply_cost, @customer_price, @product_type, @desired_quantity, @id]
-    SqlRunner.run(sql, values)
+    if @customer_price > @supply_cost
+      sql = "UPDATE products SET (name, description, quantity, supply_cost, customer_price, product_type, desired_quantity) =
+      ($1, $2, $3, $4, $5, $6, $7)
+      WHERE id = $8"
+      values = [@name, @description, @quantity, @supply_cost, @customer_price, @product_type, @desired_quantity, @id]
+      SqlRunner.run(sql, values)
+    else
+      p "Cannot sell for less than supply cost"
+    end
   end
 
 
   def self.stock_order
     sql = "SELECT * FROM products WHERE (quantity/desired_quantity) < 0.2"
-
     results = SqlRunner.run(sql)
     return results.map { |product| Product.new(product)}
   end

@@ -20,6 +20,11 @@ get '/products/stock_order' do
   erb( :stock_order)
 end
 
+get '/products/mark_up' do
+  @products = Product.all
+  erb( :mark_up)
+end
+
 get '/suppliers' do
   @suppliers = Supplier.all
   erb (:suppliers)

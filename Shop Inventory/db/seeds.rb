@@ -38,4 +38,8 @@ supplier3 = Supplier.new({
   })
 supplier3.save
 
-p Product.stock_order
+
+product4 = Product.new({
+  "name" => "Test", "description" => "Famous Grouse",
+  "quantity" => "3", "supply_cost" =>  "9.00", "customer_price" => "8.00", "product_type" => "alcohol", "desired_quantity" => "4"})
+product4.save()
