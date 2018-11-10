@@ -1,8 +1,10 @@
 require_relative('../db/sql_runner')
 
-class Manufacturer
+class Supplier
 
-attr_reader :name, :supplies_type
+attr_reader :id
+
+attr_accessor :name, :supplies_type
 
   def initialize( options )
     @id = options['id'].to_i
@@ -11,7 +13,7 @@ attr_reader :name, :supplies_type
   end
 
   def save()
-    sql = "INSERT INTO manufacturers
+    sql = "INSERT INTO suppliers
     (name, supplies_type)
     VALUES
     ($1, $2)
@@ -22,33 +24,33 @@ attr_reader :name, :supplies_type
   end
 
   def self.delete_all()
-    sql = "DELETE FROM manufacturers"
+    sql = "DELETE FROM suppliers"
     SqlRunner.run(sql)
   end
 
   def self.all
-    sql = "SELECT * FROM manufacturers"
+    sql = "SELECT * FROM suppliers"
     results = SqlRunner.run( sql )
-    return results.map { |manufacturer| Manufacturer.new( manufacturer ) }
+    return results.map { |supplier| Supplier.new( supplier ) }
   end
 
   def delete()
-    sql = "DELETE FROM manufacturers WHERE id = $1"
+    sql = "DELETE FROM suppliers WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
 
   def self.find( id )
-    sql = "SELECT * FROM manufacturers
+    sql = "SELECT * FROM suppliers
     WHERE id = $1"
     values = [id]
-    manufacturer = SqlRunner.run( sql, values )
-    result = Manufacturer.new( manufacturer.first )
+    supplier = SqlRunner.run( sql, values )
+    result = Supplier.new( supplier.first )
     return result
   end
 
   def update
-    sql = "UPDATE manufacturers SET (name, supplies_type)
+    sql = "UPDATE suppliers SET (name, supplies_type)
     VALUES
     ($1, $2)
     WHERE id = $3"

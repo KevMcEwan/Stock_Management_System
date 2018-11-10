@@ -2,19 +2,19 @@ require_relative('../db/sql_runner')
 
 class Product
 
-attr_reader 
+attr_reader :id
 
-attr_accessor :name, :description, :quantity, :supply_cost, :customer_price, :product_type, :desired_quantity, :id
+attr_accessor :name, :description, :quantity, :supply_cost, :customer_price, :product_type, :desired_quantity
 
   def initialize( options )
     @id = options['id'].to_i
     @name = options['name']
     @description = options['description']
-    @quantity = options['quantity'].to_i
+    @quantity = options['quantity'].to_f
     @supply_cost = options['supply_cost'].to_f
     @customer_price = options['customer_price'].to_f
     @product_type = options['product_type']
-    @desired_quantity = options['desired_quantity'].to_i
+    @desired_quantity = options['desired_quantity'].to_f
   end
 
   def markup
@@ -38,7 +38,7 @@ attr_accessor :name, :description, :quantity, :supply_cost, :customer_price, :pr
     RETURNING id"
     values = [@name, @description, @quantity, @supply_cost, @customer_price, @product_type, @desired_quantity]
     results = SqlRunner.run(sql, values)
-    @id = results.first()['id'].to_i
+    @id = results.first['id'].to_i
   end
 
   def self.delete_all()
@@ -76,7 +76,12 @@ attr_accessor :name, :description, :quantity, :supply_cost, :customer_price, :pr
   end
 
 
+  def self.stock_order
+    sql = "SELECT * FROM products WHERE (quantity/desired_quantity) < 0.2"
 
+    results = SqlRunner.run(sql)
+    return results.map { |product| Product.new(product)}
+  end
 
 
 

@@ -1,9 +1,9 @@
-require_relative( "../models/manufacturer.rb" )
+require_relative( "../models/supplier.rb" )
 require_relative( "../models/product.rb" )
 require("pry-byebug")
 
 Product.delete_all()
-Manufacturer.delete_all()
+Supplier.delete_all()
 
 
 product1 = Product.new({
@@ -23,22 +23,19 @@ product3.save()
 
 
 
-manufacturer1 = Manufacturer.new({
+supplier1 = Supplier.new({
   "name" => "Heinz", "supplies_type" => "Processed foods"
   })
-manufacturer1.save
+supplier1.save
 
-manufacturer2 = Manufacturer.new({
+supplier2 = Supplier.new({
   "name" => "Andrex", "supplies_type" => "Bathroom products"
   })
-manufacturer2.save
+supplier2.save
 
-manufacturer3 = Manufacturer.new({
+supplier3 = Supplier.new({
   "name" => "Edrington Group", "supplies_type" => "Alcoholic beverages"
   })
-manufacturer3.save
+supplier3.save
 
-product3.name = "Whiskey"
-product3.update
-
-p Product.all
+p Product.stock_order

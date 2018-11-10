@@ -2,7 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
 require_relative( './models/product.rb' )
-require_relative( './models/manufacturer.rb' )
+require_relative( './models/supplier.rb' )
 also_reload( './models/*' )
 
 
@@ -15,18 +15,24 @@ get '/products' do
   erb( :index )
 end
 
-get '/manufacturers' do
-  erb (:manufacturers)
+get '/products/stock_order' do
+  @products = Product.stock_order
+  erb( :stock_order)
+end
+
+get '/suppliers' do
+  @suppliers = Supplier.all
+  erb (:suppliers)
 end
 
 
 get '/products/add_new' do
-  erb( :"/add_new" )
+  erb( :"add_new" )
 end
 
-post '/products/add_new' do
+post '/products' do
   @product = Product.new( params )
-  @product.save()
+  @product.save
   redirect to '/products'
 end
 
@@ -42,8 +48,7 @@ get '/products/:id/edit' do
 end
 
 post '/products/:id' do
-  @product = Product.find(params[:id])
-  @product.update
+  Product.find(params).update
   redirect to '/products'
 end
 
