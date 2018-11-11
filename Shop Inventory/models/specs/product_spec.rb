@@ -52,13 +52,11 @@ class TestProduct < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-  def test_markup
-    expected = 0.67
-    actual = @product.markup
+  def test_profit_margin
+    expected = 0.5
+    actual = @product.profit_margin
     assert_equal(expected, actual)
   end
-
-
 
   def test_low_stock
     expected = "Low stock"
@@ -66,7 +64,7 @@ class TestProduct < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-  
+
 
 
 end

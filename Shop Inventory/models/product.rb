@@ -87,6 +87,20 @@ class Product
     return results.map { |product| Product.new(product)}
   end
 
+  def profit_margin
+    result = ((@customer_price/@supply_cost)-1).round(2)
+  end
+
+  def update_customer_price(profit_margin)
+    result = (profit_margin +1)*@supply_cost
+    @customer_price = result
+    sql = "UPDATE products SET (name, description, quantity, supply_cost, customer_price, product_type, desired_quantity) =
+    ($1, $2, $3, $4, $5, $6, $7)
+    WHERE id = $8"
+    values = [@name, @description, @quantity, @supply_cost, @customer_price, @product_type, @desired_quantity, @id]
+    SqlRunner.run(sql, values)
+  end
+
 
 
 end

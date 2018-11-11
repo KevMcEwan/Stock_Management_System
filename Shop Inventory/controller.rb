@@ -20,9 +20,9 @@ get '/products/stock_order' do
   erb( :stock_order)
 end
 
-get '/products/mark_up' do
+get '/products/profit_margin' do
   @products = Product.all
-  erb( :mark_up)
+  erb( :profit_margin)
 end
 
 get '/suppliers' do
