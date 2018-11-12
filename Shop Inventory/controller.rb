@@ -25,8 +25,8 @@ get '/products/profit_margin' do
   erb( :profit_margin)
 end
 
-get '/products/add_new' do
-  erb( :"add_new" )
+get '/products/add_new_product' do
+  erb( :"add_new_product" )
 end
 
 get '/products/:id' do
@@ -40,9 +40,9 @@ post '/products' do
   redirect to '/products'
 end
 
-get '/products/:id/edit' do
+get '/products/:id/editproduct' do
   @product = Product.find( params[:id] )
-  erb( :edit )
+  erb( :editproduct )
 end
 
 post '/products/:id' do
@@ -63,8 +63,8 @@ get '/suppliers' do
   erb (:suppliers)
 end
 
-get '/suppliers/add_new' do
-  erb( :"add_new" )
+get '/suppliers/add_new_supplier' do
+  erb( :"add_new_supplier" )
 end
 
 post '/suppliers' do
@@ -75,13 +75,12 @@ end
 
 get '/suppliers/:id' do
   @supplier = Supplier.find( params[:id] )
-  erb( :"/supplierinfo" )
+  erb( :"/supplier_info" )
 end
 
-
-get '/suppliers/:id/edit' do
+get '/suppliers/:id/editsupplier' do
   @supplier = Supplier.find( params[:id] )
-  erb( :edit )
+  erb( :editsupplier )
 end
 
 post '/suppliers/:id' do

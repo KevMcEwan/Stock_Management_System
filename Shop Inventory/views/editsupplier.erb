@@ -1,0 +1,54 @@
+<br>
+
+<form method="post" action="/suppliers/<%= @supplier.id %>">
+  <label for="supplier-name-field">Name:</label>
+  <input
+  type="text"
+  name="supplier_name"
+  id="supplier-name-field"
+  value="<%= @supplier.supplier_name %>"
+  />
+
+  <label for="supplies-type-field">Select a Supplies Type:</label>
+  <select name="supplies_type" id="supplies-type">
+    <option value="Tinned Foods"<%="selected" if @supplier.supplies_type == "Tinned Foods"%>>Tinned Foods</option>
+    <option value="Fresh Foods"<%="selected" if @supplier.supplies_type == "Fresh Foods"%>>Fresh Foods</option>
+    <option value="Fresh Foods"<%="selected" if @supplier.supplies_type == "Fresh Foods"%>>Fresh Foods</option>
+    <option value="Frozen Foods"<%="selected" if @supplier.supplies_type == "Frozen Foods"%>>Frozen Foods</option>
+    <option value="Soft Drinks"<%="selected" if @supplier.supplies_type == "Soft Drinks"%>>Soft Drinks</option>
+    <option value="Alcoholic Drinks"<%="selected" if @supplier.supplies_type == "Alcoholic Drinks"%>>Alcholic Drinks</option>
+    <option value="Dairy"<%="selected" if @supplier.supplies_type == "Dairy"%>>Dairy</option>
+    <option value="Bathroom"<%="selected" if @supplier.supplies_type == "Bathroom"%>>Fresh Foods</option>
+    <option value="Food Cupboard"<%="selected" if @supplier.supplies_type == "Food Cupboard"%>>Food Cupboard</option>
+    <option value="Confectionary"<%="selected" if @supplier.supplies_type == "Confectionary"%>>Confectionary</option>
+    <option value="Snacks"<%="selected" if @supplier.supplies_type == "Snacks"%>>Snacks</option>
+  </select>
+
+  <label for="contact-name-field">Contact Name:</label>
+  <input
+  type="text"
+  name="contact_name"
+  id="contact-name-field"
+  value="<%= @supplier.contact_name %>"
+  />
+
+  <label for="email-field">Email:</label>
+  <input
+  type="text"
+  name="email"
+  id="email-field"
+  value="<%= @supplier.email %>"
+  />
+
+  <label for="phone-field">Phone:</label>
+  <input
+  type="text"
+  name="phone"
+  id="phone-field"
+  value="<%= @supplier.phone %>"
+  />
+
+
+
+  <input type='submit' value="Update Supplier">
+</form>

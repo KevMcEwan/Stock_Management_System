@@ -1,0 +1,28 @@
+
+
+<h1>Supplier Information: <%= @supplier.supplier_name %></h1>
+
+
+<table>
+  <tr>
+    <th>Supplier Name</th>
+    <th>Supplies Type</th>
+    <th>Contact Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </tr>
+  <tr>
+    <td><%= @supplier.supplier_name %></td>
+    <td><%= @supplier.supplies_type %></td>
+    <td><%= @supplier.contact_name %></td>
+    <td><%= @supplier.email %></td>
+    <td><%= @supplier.phone %></td>
+  </tr>
+</table>
+
+
+<p><a href="/suppliers/<%= @supplier.id %>/editsupplier">Edit Supplier</a></p>
+
+<form method="post" action="/suppliers/<%= @supplier.id %>/delete">
+  <input type="submit" value="Delete Supplier"/>
+</form>

@@ -14,7 +14,7 @@ CREATE TABLE products (
 
 CREATE TABLE suppliers (
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255),
+  supplier_name VARCHAR(255),
   supplies_type VARCHAR(255),
   contact_name VARCHAR(255),
   email VARCHAR(255),

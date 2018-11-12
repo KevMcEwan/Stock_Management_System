@@ -1,6 +1,6 @@
-Product Info page
 
-<h1>Product Info <%= @product.name %></h1>
+
+<h1>Product Information: <%= @product.name %></h1>
 
 
 <table>
@@ -25,7 +25,7 @@ Product Info page
 </table>
 
 
-<p><a href="/products/<%= @product.id %>/edit">Edit Product</a></p>
+<p><a href="/products/<%= @product.id %>/editproduct">Edit Product</a></p>
 
 <form method="post" action="/products/<%= @product.id %>/delete">
   <input type="submit" value="Delete Product"/>

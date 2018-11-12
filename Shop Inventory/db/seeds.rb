@@ -24,17 +24,17 @@ product3.save()
 
 
 supplier1 = Supplier.new({
-  "name" => "Heinz", "supplies_type" => "Processed foods", "contact_name" => "James Red", "email" => "james@co.heinz", "phone" => "0207 345 678"
+  "supplier_name" => "Heinz", "supplies_type" => "Processed foods", "contact_name" => "James Red", "email" => "james@co.heinz", "phone" => "0207 345 678"
   })
 supplier1.save
 
 supplier2 = Supplier.new({
-  "name" => "Andrex", "supplies_type" => "Bathroom products", "contact_name" => "Chloe White", "email" => "chloe@co.andrex", "phone" => "0345 987 654"
+  "supplier_name" => "Andrex", "supplies_type" => "Bathroom products", "contact_name" => "Chloe White", "email" => "chloe@co.andrex", "phone" => "0345 987 654"
   })
 supplier2.save
 
 supplier3 = Supplier.new({
-  "name" => "Edrington Group", "supplies_type" => "Alcoholic beverages", "contact_name" => "John E. Walker", "email" => "john@co.edrington", "phone" => "0141 123 321"
+  "supplier_name" => "Edrington Group", "supplies_type" => "Alcoholic beverages", "contact_name" => "John E. Walker", "email" => "john@co.edrington", "phone" => "0141 123 321"
   })
 supplier3.save
 
@@ -43,3 +43,6 @@ product4 = Product.new({
   "name" => "Test", "description" => "Famous Grouse",
   "quantity" => "3", "supply_cost" =>  "9.00", "customer_price" => "8.00", "product_type" => "alcohol", "desired_quantity" => "4"})
 product4.save()
+
+supplier1.supplier_name = "Heinz 2"
+supplier1.update
