@@ -29,15 +29,15 @@ get '/products/add_new_product' do
   erb( :"add_new_product" )
 end
 
-get '/products/:id' do
-  @product = Product.find( params[:id] )
-  erb( :"/productinfo" )
-end
-
 post '/products' do
   @product = Product.new( params )
   @product.save
   redirect to '/products'
+end
+
+get '/products/:id' do
+  @product = Product.find( params[:id] )
+  erb( :"/productinfo" )
 end
 
 get '/products/:id/editproduct' do

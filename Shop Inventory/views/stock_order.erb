@@ -15,12 +15,12 @@
     <tr>
       <td><a href="products/<%=product.id%>"  "><%= product.name %></a></td>
       <td><%= product.description %></td>
-      <td><%= product.quantity %></td>
+      <td><%= product.quantity.round(0) %></td>
       <td><%= product.supply_cost %></td>
       <td><%= product.product_type %></td>
-      <td><%= product.desired_quantity %></td>
-      <td><%= product.desired_quantity - product.quantity %></td>
-      <td><%= ((product.desired_quantity - product.quantity) * product.supply_cost).round(2) %></td> 
+      <td><%= product.desired_quantity.round(0) %></td>
+      <td><%= (product.desired_quantity - product.quantity).round(0) %></td>
+      <td><%= ((product.desired_quantity - product.quantity) * product.supply_cost).round(2) %></td>
     </tr>
   <% end %>
 </table>

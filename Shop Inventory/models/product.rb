@@ -21,7 +21,7 @@ class Product
 
   def low_stock
     result = @quantity.to_f/@desired_quantity.to_f
-    if result.round(2) < 0.10 then return "Low stock"
+    if result.round(2) < 0.10 
     else
       return "Quantity acceptable"
     end

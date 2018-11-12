@@ -20,9 +20,12 @@
   </tr>
 </table>
 
+<br>
+<form method="get" action="/suppliers/<%= @supplier.id %>/editsupplier">
+  <button>Edit Supplier</button>
+</form>
 
-<p><a href="/suppliers/<%= @supplier.id %>/editsupplier">Edit Supplier</a></p>
-
+<br>
 <form method="post" action="/suppliers/<%= @supplier.id %>/delete">
-  <input type="submit" value="Delete Supplier"/>
+  <button>Delete Supplier</button>
 </form>

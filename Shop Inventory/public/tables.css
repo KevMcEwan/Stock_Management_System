@@ -8,6 +8,10 @@ table, th, td {
   font-family: arial;
 }
 
+th {
+  background-color: slategray;
+}
+
 tr:nth-child(even) {
-    background-color: "light gray";
+    background-color: lightgray;
 }

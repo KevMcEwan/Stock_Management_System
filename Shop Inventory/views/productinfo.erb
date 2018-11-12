@@ -25,7 +25,13 @@
 </table>
 
 
-<p><a href="/products/<%= @product.id %>/editproduct">Edit Product</a></p>
+<br>
+
+<form method="get" action="/products/<%= @product.id %>/editproduct">
+  <button>Edit Product</button>
+</form>
+
+<br>
 
 <form method="post" action="/products/<%= @product.id %>/delete">
   <input type="submit" value="Delete Product"/>

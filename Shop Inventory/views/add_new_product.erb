@@ -1,10 +1,14 @@
-<form method="post" action="/products/add_new_product">
+<br>
+
+<form method="post" action="/products">
   <label for="name-field">Name:</label>
   <input
   type="text"
   name="name"
   id="name-field"
   />
+
+<br>
 
   <label for="description-field">Description:</label>
   <input
@@ -13,12 +17,16 @@
   id="description-field"
   />
 
+<br>
+
   <label for="quantity-field">Quantity:</label>
   <input
   type="number"
   name="quantity"
   id="quantity-field"
   />
+
+<br>
 
   <label for="supply-cost-field">Supply Cost:</label>
   <input
@@ -28,6 +36,8 @@
   id="supply-cost-field"
   />
 
+<br>
+
   <label for="customer-price-field">Customer Price:</label>
   <input
   type="number"
@@ -35,6 +45,8 @@
   name="customer_price"
   id="customer-price-field"
   />
+
+<br>
 
   <label for="product-type-field">Select a Product Type:</label>
   <select name="product_type" id="product-type">
@@ -50,12 +62,17 @@
     <option value="Snacks">Snacks</option>
   </select>
 
+<br>
+
   <label for="desired-quantity-field">Desired Quantity:</label>
   <input
   type="number"
   name="desired_quantity"
   id="desired-quantity-field"
   />
+
+<br>
+<br>
 
   <input type="submit" value="Add New Product">
 </form>

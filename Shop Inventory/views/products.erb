@@ -1,6 +1,8 @@
 <h1>Products</h1>
 
-<table>
+
+
+<table cellpadding=10px>
   <tr>
     <th>Name</th>
     <th>Description</th>
@@ -14,11 +16,11 @@
     <tr>
       <td><a href="products/<%=product.id%>"  "><%= product.name %></a></td>
       <td><%= product.description %></td>
-      <td><%= product.quantity %></td>
+      <td><%= product.quantity.round(0) %></td>
       <td><%= product.supply_cost %></td>
       <td><%= product.customer_price %></td>
       <td><%= product.product_type %></td>
-      <td><%= product.desired_quantity %></td>
+      <td><%= product.desired_quantity.round(0) %></td>
     </tr>
   <% end %>
 </table>

@@ -1,11 +1,11 @@
 
 <p> Name: <%= @product.name %> </p>
 <p>Descripton: <%= @product.description %></p>
-<p>Quantity: <%= @product.quantity %></p>
+<p>Quantity: <%= @product.quantity.round(0) %></p>
 <p>Supply Cost: <%= @product.supply_cost %></p>
 <p>Customer Price: <%= @product.customer_price %></p>
 <p>Product Type: <%= @product.product_type %></p>
-<p>Desired Quantity: <%= @product.desired_quantity %></p>
+<p>Desired Quantity: <%= @product.desired_quantity.round(0) %></p>
 <p><a href="/products/<%= @product.id %>/edit">Edit Product</a></p>
 <form method="post" action="/products/<%= @product.id %>/delete">
     <input type="submit" value="Delete Product"/>
