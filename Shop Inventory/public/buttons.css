@@ -1,0 +1,19 @@
+.btn-group button {
+    background-color: gray;
+    border: 1px solid black;
+    color: white;
+    padding: 10px 24px;
+    float: left;
+}
+
+
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.btn-group button:hover {
+    background-color: gray;
+}

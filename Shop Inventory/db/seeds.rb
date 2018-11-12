@@ -24,17 +24,17 @@ product3.save()
 
 
 supplier1 = Supplier.new({
-  "name" => "Heinz", "supplies_type" => "Processed foods"
+  "name" => "Heinz", "supplies_type" => "Processed foods", "contact_name" => "James Red", "email" => "james@co.heinz", "phone" => "0207 345 678"
   })
 supplier1.save
 
 supplier2 = Supplier.new({
-  "name" => "Andrex", "supplies_type" => "Bathroom products"
+  "name" => "Andrex", "supplies_type" => "Bathroom products", "contact_name" => "Chloe White", "email" => "chloe@co.andrex", "phone" => "0345 987 654"
   })
 supplier2.save
 
 supplier3 = Supplier.new({
-  "name" => "Edrington Group", "supplies_type" => "Alcoholic beverages"
+  "name" => "Edrington Group", "supplies_type" => "Alcoholic beverages", "contact_name" => "John E. Walker", "email" => "john@co.edrington", "phone" => "0141 123 321"
   })
 supplier3.save
 

@@ -7,12 +7,12 @@ also_reload( './models/*' )
 
 
 get '/' do
-  redirect to 'products'
+  erb(:index)
 end
 
 get '/products' do
   @products = Product.all
-  erb( :index )
+  erb( :products)
 end
 
 get '/products/stock_order' do
@@ -25,14 +25,13 @@ get '/products/profit_margin' do
   erb( :profit_margin)
 end
 
-get '/suppliers' do
-  @suppliers = Supplier.all
-  erb (:suppliers)
-end
-
-
 get '/products/add_new' do
   erb( :"add_new" )
+end
+
+get '/products/:id' do
+  @product = Product.find( params[:id] )
+  erb( :"/productinfo" )
 end
 
 post '/products' do
@@ -41,19 +40,13 @@ post '/products' do
   redirect to '/products'
 end
 
-get '/products/:id' do
-  @product = Product.find( params[:id] )
-  erb( :"/productinfo" )
-end
-
-
 get '/products/:id/edit' do
   @product = Product.find( params[:id] )
   erb( :edit )
 end
 
 post '/products/:id' do
-  Product.find(params).update
+  Product.new(params).update
   redirect to '/products'
 end
 
@@ -61,4 +54,43 @@ post '/products/:id/delete' do
   product = Product.find( params[:id] )
   product.delete()
   redirect to '/products'
+end
+
+
+
+get '/suppliers' do
+  @suppliers = Supplier.all
+  erb (:suppliers)
+end
+
+get '/suppliers/add_new' do
+  erb( :"add_new" )
+end
+
+post '/suppliers' do
+  @supplier = Supplier.new( params )
+  @supplier.save
+  redirect to '/suppliers'
+end
+
+get '/suppliers/:id' do
+  @supplier = Supplier.find( params[:id] )
+  erb( :"/supplierinfo" )
+end
+
+
+get '/suppliers/:id/edit' do
+  @supplier = Supplier.find( params[:id] )
+  erb( :edit )
+end
+
+post '/suppliers/:id' do
+  Supplier.new(params).update
+  redirect to '/suppliers'
+end
+
+post '/suppliers/:id/delete' do
+  supplier = Supplier.find( params[:id] )
+  supplier.delete()
+  redirect to '/suppliers'
 end

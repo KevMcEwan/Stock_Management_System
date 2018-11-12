@@ -1,14 +1,20 @@
-<p>List of Suppliers</p>
+<p>Supplier List</p>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Supplies Type</th>
+    <th>Contact Name</th>
+    <th>Email</th>
+    <th>Phone</th>
   </tr>
   <% @suppliers.each do |supplier| %>
     <tr>
       <td><a href="suppliers/<%=supplier.id%>"  "><%= supplier.name %></a></td>
       <td><%= supplier.supplies_type %></td>
+      <td><%= supplier.contact_name %></td>
+      <td><%= supplier.email %></td>
+      <td><%= supplier.phone %></td>
     </tr>
   <% end %>
 </table>

@@ -4,21 +4,24 @@ class Supplier
 
 attr_reader :id
 
-attr_accessor :name, :supplies_type
+attr_accessor :name, :supplies_type, :contact_name, :email, :phone
 
   def initialize( options )
     @id = options['id'].to_i
     @name = options['name']
     @supplies_type = options['supplies_type']
+    @contact_name = options['contact_name']
+    @email = options['email']
+    @phone = options['phone']
   end
 
   def save()
     sql = "INSERT INTO suppliers
-    (name, supplies_type)
+    (name, supplies_type, contact_name, email, phone)
     VALUES
-    ($1, $2)
+    ($1, $2, $3, $4, $5)
     RETURNING id"
-    values = [@name, @supplies_type]
+    values = [@name, @supplies_type, @contact_name, @email, @phone]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -50,11 +53,11 @@ attr_accessor :name, :supplies_type
   end
 
   def update
-    sql = "UPDATE suppliers SET (name, supplies_type)
+    sql = "UPDATE suppliers SET (name, supplies_type, contact_name, email, phone)
     VALUES
-    ($1, $2)
-    WHERE id = $3"
-    values = [@name, @supplies_type, @id]
+    ($1, $2, $3, $4, $5)
+    WHERE id = $6"
+    values = [@name, @supplies_type, @contact_name, @email, @phone, @id]
     SqlRunner.run(sql, values)
   end
 

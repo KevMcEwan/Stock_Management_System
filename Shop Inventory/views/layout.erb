@@ -3,30 +3,37 @@
 <head>
   <title>Kevin's Shop</title>
   <link rel="stylesheet" type="text/css" href="/tables.css">
+  <link rel="stylesheet" type="text/css" href="/buttons.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
+
+
+
+<h2>CodeClan Shop Inventory System</h2>
 <body>
-<nav>
-  <ul>
-    <li>
-      <a href="/">Home Page</a>
-    </li>
-    <li>
-      <a href="/products">Product List</a>
-    </li>
-    <li>
-      <a href="/suppliers">Supplier Information</a>
-    </li>
-    <li>
-      <a href="/products/add_new">Add New Product</a>
-    </li>
-    <li>
-      <a href="/products/stock_order">Stock Order</a>
-    </li>
-    <li>
-      <a href="/products/profit_margin">Profit Margin</a>
-    </li>
-  </ul>
-</nav>
+
+  <div class="btn-group">
+    <form method="get" action="/">
+      <button>Home Page</button>
+    </form>
+    <form method="get" action="/products">
+      <button>Product List</button>
+    </form>
+    <form method="get" action="/suppliers">
+      <button>Supplier List</button>
+    </form>
+    <form method="get" action="/products/add_new">
+      <button>Add New Product</button>
+    </form>
+    <form method="get" action="/products/stock_order">
+      <button>Stock Order</button>
+    </form>
+    <form method="get" action="/products/profit_margin">
+      <button>Profit Margin</button>
+    </form>
+</div>
+
+
   <%= yield %>
 </body>
 </html>
