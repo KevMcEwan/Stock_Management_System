@@ -1,0 +1,48 @@
+<br>
+
+<form method="post" action="/products/<%= @product.id %>">
+  <label for="name-field">Name:</label>
+  <input
+  type="text"
+  name="name"
+  id="name-field"
+  value="<%= @product.name %>"
+  />
+
+  <label for="description-field">Description:</label>
+  <input
+  type="text"
+  name="description"
+  id="description-field"
+  value="<%= @product.description %>"
+  />
+
+  <label for="supply-cost-field">Supply Cost:</label>
+  <input
+  type="number"
+  step="0.01"
+  name="supply_cost"
+  id="supply-cost-field"
+  value="<%= @product.supply_cost %>"
+  />
+
+  <label for="customer-price-field">Customer Price:</label>
+  <input
+  type="number"
+  step="0.01"
+  name="customer_price"
+  id="customer-price-field"
+  value="<%= @product.customer_price %>"
+  />
+
+<label for="profit-margin-field">Profit Margin:</label>
+<input
+type="number"
+step="0.01"
+name="profit_margin"
+id="profit-margin-field"
+value="<%= @product.update_customer_price %>"
+/>
+
+<input type='submit' value="Update Profit Margin">
+</form>
