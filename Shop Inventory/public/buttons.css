@@ -18,9 +18,24 @@
     background-color: gray;
 }
 
-.button {
-  background-color: orange;
-  border: 1px solid red;
-  color: black;
-  padding: 10px 24px;
+.btn-group2 button {
+    background-color: lightgray;
+    border: 1px solid black;
+    color: black;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 10px 24px;
+    float: left;
+}
+
+
+.btn-group2:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.btn-group2 button:hover {
+    background-color: gray;
 }

@@ -2,6 +2,17 @@
 
 <h1>Product Information: <%= @product.name %></h1>
 
+<div class="btn-group2">
+  <form method="get" action="/products/<%= @product.id %>/editproduct">
+    <button>Edit Product</button>
+  </form>
+
+  <form method="post" action="/products/<%= @product.id %>/delete">
+    <button>Delete Product</button>
+  </form>
+</div>
+
+<br>
 
 <table>
   <tr>
@@ -43,13 +54,3 @@
 
 
 <br>
-
-<form method="get" action="/products/<%= @product.id %>/editproduct">
-  <button>Edit Product</button>
-</form>
-
-<br>
-
-<form method="post" action="/products/<%= @product.id %>/delete">
-  <input type="submit" value="Delete Product"/>
-</form>
