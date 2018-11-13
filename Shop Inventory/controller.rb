@@ -42,11 +42,6 @@ get '/products/:id' do
 end
 
 
-post '/products/:id' do
-  Product.new(params).update
-  redirect to '/products/profit_margin'
-end
-
 
 get '/products/:id/editproduct' do
   @product = Product.find( params[:id] )
@@ -55,13 +50,13 @@ end
 
 post '/products/:id' do
   Product.new(params).update
-  redirect to '/products/products'
+  redirect to '/products'
 end
 
 post '/products/:id/delete' do
   product = Product.find( params[:id] )
   product.delete()
-  redirect to '/products/products'
+  redirect to '/products'
 end
 
 get '/stock_supply' do
@@ -81,7 +76,7 @@ end
 post '/wholesalers' do
   @wholesaler = Wholesaler.new( params )
   @wholesaler.save
-  redirect to '/wholesalers/wholesalers'
+  redirect to '/wholesalers'
 end
 
 get '/wholesalers/:id' do
@@ -96,11 +91,11 @@ end
 
 post '/wholesalers/:id' do
   Wholesaler.new(params).update
-  redirect to '/wholesalers/wholesalers'
+  redirect to '/wholesalers'
 end
 
 post '/wholesalers/:id/delete' do
   wholesaler = Wholesaler.find( params[:id] )
   wholesaler.delete()
-  redirect to '/wholesalers/wholesalers'
+  redirect to '/wholesalers'
 end

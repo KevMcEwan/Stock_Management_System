@@ -73,6 +73,23 @@ class Stock_supply
     return Wholesaler.new(wholesaler)
   end
 
+  def customer_price
+    sql = "SELECT customer_price FROM products WHERE id = $1"
+    values = [@product_id]
+    result = SqlRunner.run(sql, values).first
+    return Product.new(result).customer_price
+  end
+
+  def product_description
+    sql = "SELECT description FROM products WHERE id = $1"
+    values = [@product_id]
+    result = SqlRunner.run(sql, values).first
+    return Product.new(result).description
+  end
+
+  # def supply_price
+  #   sql = "SELECT supply_price FROM  WHERE id = $1"
+  #   values = [@product_id]
 
 
 end

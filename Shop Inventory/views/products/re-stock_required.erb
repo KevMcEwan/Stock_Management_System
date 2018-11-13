@@ -1,27 +1,23 @@
 <h1>Re-Stock required</h1>
-<h2>Only showing products with stock level less than 20%</h2>
+<h3>Only showing products with "Quantity in Stock" less than 20% of Desired Quantity</h3>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Quantity</th>
-    <th>Supply Cost</th>
+    <th>Quantity in Stock</th>
     <th>Product Type</th>
     <th>Desired Quantity</th>
-    <th>Required Order</th>
-    <th>Total Cost</th>
+    <th>Quantity to Order</th>
   </tr>
   <% @products.each do |product| %>
     <tr>
       <td><a href="products/<%=product.id%>"  "><%= product.name %></a></td>
       <td><%= product.description %></td>
       <td><%= product.quantity.round(0) %></td>
-      <td><%= product.supply_cost %></td>
       <td><%= product.product_type %></td>
       <td><%= product.desired_quantity.round(0) %></td>
       <td><%= (product.desired_quantity - product.quantity).round(0) %></td>
-      <td><%= ((product.desired_quantity - product.quantity) * product.supply_cost).round(2) %></td>
     </tr>
   <% end %>
 </table>

@@ -30,7 +30,7 @@ class Product
       sql = "INSERT INTO products
       (name, description, quantity, customer_price, product_type, desired_quantity)
       VALUES
-      ($1, $2, $3, $4, $5, $6, $7, $8)
+      ($1, $2, $3, $4, $5, $6)
       RETURNING id"
       values = [@name, @description, @quantity, @customer_price, @product_type, @desired_quantity]
       results = SqlRunner.run(sql, values)
@@ -78,7 +78,31 @@ class Product
     return results.map { |product| Product.new(product)}
   end
 
+  def stocked_by_wholesaler
+    sql = "SELECT wholesalers.wholesaler_name
+    FROM wholesalers
+    INNER JOIN stock_supply
+    ON stock_supply.wholesaler_id = wholesalers.id
+    WHERE stock_supply.product_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.map { |wholesaler| Wholesaler.new(wholesaler).wholesaler_name }
+  end
 
+  def supply_price
+    sql = "SELECT stock_supply.supply_price
+    FROM stock_supply WHERE product_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.map { |price| Stock_supply.new(price).supply_price}
+  end
+
+  def stock_supply
+    sql = "SELECT stock_supply.* FROM stock_supply WHERE product_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.map { |stock_supply| Stock_supply.new(stock_supply)}
+  end
 
 
 

@@ -25,7 +25,7 @@ CREATE TABLE wholesalers (
 
 CREATE TABLE stock_supply (
   id SERIAL8 PRIMARY KEY,
-  product_id INT8 REFERENCES products(id),
-  wholesaler_id INT8 REFERENCES wholesalers(id),
+  product_id INT4 REFERENCES products(id) ON DELETE CASCADE,
+  wholesaler_id INT4 REFERENCES wholesalers(id) ON DELETE CASCADE,
   supply_price FLOAT
 );

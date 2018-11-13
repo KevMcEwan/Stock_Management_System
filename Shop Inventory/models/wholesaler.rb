@@ -18,7 +18,7 @@ attr_accessor :wholesaler_name, :contact_name, :email, :phone
     sql = "INSERT INTO wholesalers
     (wholesaler_name, contact_name, email, phone)
     VALUES
-    ($1, $2, $3, $4, $5)
+    ($1, $2, $3, $4)
     RETURNING id"
     values = [@wholesaler_name, @contact_name, @email, @phone]
     results = SqlRunner.run(sql, values)
@@ -64,6 +64,17 @@ attr_accessor :wholesaler_name, :contact_name, :email, :phone
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map { |product| Product.new(product) }
+  end
+
+  def products_stocked
+    sql = "SELECT products.*
+    FROM products
+    INNER JOIN stock_supply
+    ON stock_supply.product_id = products.id
+    WHERE stock_supply.wholesaler_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.map { |product| Product.new(product) }
   end
 
 
