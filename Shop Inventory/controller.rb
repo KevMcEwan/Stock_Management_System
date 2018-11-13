@@ -2,7 +2,8 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
 require_relative( './models/product.rb' )
-require_relative( './models/supplier.rb' )
+require_relative( './models/wholesaler.rb' )
+require_relative( './models/stock_supply.rb')
 also_reload( './models/*' )
 
 
@@ -63,40 +64,43 @@ post '/products/:id/delete' do
   redirect to '/products/products'
 end
 
-
-
-get '/suppliers' do
-  @suppliers = Supplier.all
-  erb (:"suppliers/suppliers")
+get '/stock_supply' do
+  @stock_supply = Stock_supply.all
+  erb (:"stock_supply/stock_supply")
 end
 
-get '/suppliers/add_new_supplier' do
-  erb( :"suppliers/add_new_supplier" )
+get '/wholesalers' do
+  @wholesalers = Wholesaler.all
+  erb (:"wholesalers/wholesalers")
 end
 
-post '/suppliers' do
-  @supplier = Supplier.new( params )
-  @supplier.save
-  redirect to '/suppliers/suppliers'
+get '/wholesalers/add_new_wholesaler' do
+  erb( :"wholesalers/add_new_wholesaler" )
 end
 
-get '/suppliers/:id' do
-  @supplier = Supplier.find( params[:id] )
-  erb( :"/suppliers/supplier_info" )
+post '/wholesalers' do
+  @wholesaler = Wholesaler.new( params )
+  @wholesaler.save
+  redirect to '/wholesalers/wholesalers'
 end
 
-get '/suppliers/:id/editsupplier' do
-  @supplier = Supplier.find( params[:id] )
-  erb( :"suppliers/editsupplier" )
+get '/wholesalers/:id' do
+  @wholesaler = Wholesaler.find( params[:id] )
+  erb( :"/wholesalers/wholesaler_info" )
 end
 
-post '/suppliers/:id' do
-  Supplier.new(params).update
-  redirect to '/suppliers/suppliers'
+get '/wholesalers/:id/editwholesaler' do
+  @wholesaler = Wholesaler.find( params[:id] )
+  erb( :"wholesalers/editwholesaler" )
 end
 
-post '/suppliers/:id/delete' do
-  supplier = Supplier.find( params[:id] )
-  supplier.delete()
-  redirect to '/suppliers/suppliers'
+post '/wholesalers/:id' do
+  Wholesaler.new(params).update
+  redirect to '/wholesalers/wholesalers'
+end
+
+post '/wholesalers/:id/delete' do
+  wholesaler = Wholesaler.find( params[:id] )
+  wholesaler.delete()
+  redirect to '/wholesalers/wholesalers'
 end

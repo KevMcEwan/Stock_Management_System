@@ -1,0 +1,29 @@
+
+
+<h1>Wholesaler Information: <%= @wholesaler.wholesaler_name %></h1>
+
+
+<table>
+  <tr>
+    <th>Wholesaler Name</th>
+    <th>Contact Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </tr>
+  <tr>
+    <td><%= @wholesaler.wholesaler_name %></td>
+    <td><%= @wholesaler.contact_name %></td>
+    <td><%= @wholesaler.email %></td>
+    <td><%= @wholesaler.phone %></td>
+  </tr>
+</table>
+
+<br>
+<form method="get" action="/wholesalers/<%= @wholesaler.id %>/editwholesaler">
+  <button>Edit Wholesaler</button>
+</form>
+
+<br>
+<form method="post" action="/wholesalers/<%= @wholesaler.id %>/delete">
+  <button>Delete Wholesaler</button>
+</form>

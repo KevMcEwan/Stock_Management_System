@@ -7,7 +7,6 @@
     <th>Name</th>
     <th>Description</th>
     <th>Quantity</th>
-    <th>Supply Cost</th>
     <th>Customer Price</th>
     <th>Product Type</th>
     <th>Desired Quantity</th>
@@ -17,7 +16,6 @@
       <td><a href="products/<%=product.id%>"  "><%= product.name %></a></td>
       <td><%= product.description %></td>
       <td><%= product.quantity.round(0) %></td>
-      <td><%= "£ " '%.2f' % product.supply_cost %></td>
       <td><%= "£ " '%.2f' % product.customer_price %></td>
       <td><%= product.product_type %></td>
       <td><%= product.desired_quantity.round(0) %></td>

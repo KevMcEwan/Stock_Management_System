@@ -1,0 +1,25 @@
+<br>
+
+
+<form method="get" action="/wholesalers/add_new_wholesaler">
+  <button>Add New Wholesaler</button>
+</form>
+
+<br>
+
+<table cellpadding=10px>
+  <tr>
+    <th>Wholesaler Name</th>
+    <th>Contact Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </tr>
+  <% @wholesalers.each do |wholesaler| %>
+    <tr>
+      <td><a href="wholesalers/<%=wholesaler.id%>"  "><%= wholesaler.wholesaler_name %></a></td>
+      <td><%= wholesaler.contact_name %></td>
+      <td><%= wholesaler.email %></td>
+      <td><%= wholesaler.phone %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,40 @@
+<br>
+
+<form method="post" action="/wholesalers/<%= @wholesaler.id %>">
+  <label for="wholesaler-name-field">Name:</label>
+  <input
+  type="text"
+  name="wholesaler_name"
+  id="wholesaler-name-field"
+  value="<%= @wholesaler.wholesaler_name %>"
+  />
+
+
+  <label for="contact-name-field">Contact Name:</label>
+  <input
+  type="text"
+  name="contact_name"
+  id="contact-name-field"
+  value="<%= @wholesaler.contact_name %>"
+  />
+
+  <label for="email-field">Email:</label>
+  <input
+  type="text"
+  name="email"
+  id="email-field"
+  value="<%= @wholesaler.email %>"
+  />
+
+  <label for="phone-field">Phone:</label>
+  <input
+  type="text"
+  name="phone"
+  id="phone-field"
+  value="<%= @wholesaler.phone %>"
+  />
+
+
+
+  <input type='submit' value="Update wholesaler">
+</form>

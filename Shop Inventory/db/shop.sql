@@ -1,5 +1,6 @@
+DROP TABLE IF EXISTS stock_supply;
 DROP TABLE IF EXISTS products;
-DROP TABLE IF EXISTS suppliers;
+DROP TABLE IF EXISTS wholesalers;
 
 CREATE TABLE products (
   id SERIAL8 PRIMARY KEY,
@@ -9,14 +10,22 @@ CREATE TABLE products (
   supply_cost FLOAT,
   customer_price FLOAT,
   product_type VARCHAR(255),
-  desired_quantity FLOAT
+  desired_quantity FLOAT,
+  wholesaler VARCHAR(255)
 );
 
-CREATE TABLE suppliers (
+CREATE TABLE wholesalers (
   id SERIAL8 PRIMARY KEY,
-  supplier_name VARCHAR(255),
+  wholesaler_name VARCHAR(255),
   supplies_type VARCHAR(255),
   contact_name VARCHAR(255),
   email VARCHAR(255),
   phone VARCHAR(255)
+);
+
+CREATE TABLE stock_supply (
+  id SERIAL8 PRIMARY KEY,
+  product_id INT8 REFERENCES products(id),
+  wholesaler_id INT8 REFERENCES wholesalers(id),
+  supply_price FLOAT
 );
