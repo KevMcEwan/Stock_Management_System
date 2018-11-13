@@ -41,8 +41,6 @@ get '/products/:id' do
   erb( :"/products/productinfo" )
 end
 
-
-
 get '/products/:id/editproduct' do
   @product = Product.find( params[:id] )
   erb( :"products/editproduct" )
@@ -59,10 +57,45 @@ post '/products/:id/delete' do
   redirect to '/products'
 end
 
+
+
 get '/stock_supply' do
   @stock_supply = Stock_supply.all
   erb (:"stock_supply/stock_supply")
 end
+
+get '/stock_supply/add_new_supply_product' do
+  erb( :"stock_supply/add_new_supply_product" )
+end
+#
+# post '/stock_supply' do
+#   @stock_supply = Stock_supply.new( params )
+#   @stock_supply.save
+#   redirect to '/stock_supply'
+# end
+#
+# get '/stock_supply/:id' do
+#   @stock_supply = Stock_supply.find( params[:id] )
+#   erb( :"/stock_supply/stock_supply_info" )
+# end
+#
+# get '/stock_supply/:id/edit_stock_supply' do
+#   @stock_supply = Stock_supply.find( params[:id] )
+#   erb( :"stock_supply/edit_stock_supply" )
+# end
+#
+# post '/stock_supply/:id' do
+#   Stock_supply.new(params).update
+#   redirect to '/stock_supply'
+# end
+#
+# post '/stock_supply/:id/delete' do
+#   stock_supply = Stock_supply.find( params[:id] )
+#   stock_supply.delete()
+#   redirect to '/stock_supply'
+# end
+
+
 
 get '/wholesalers' do
   @wholesalers = Wholesaler.all

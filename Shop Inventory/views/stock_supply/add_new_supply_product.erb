@@ -1,0 +1,62 @@
+<br>
+
+<form method="post" action="/stock_supply">
+  <label for="name-field">Name:</label>
+  <input
+  type="text"
+  name="name"
+  id="name-field"
+  />
+
+<br>
+
+  <label for="description-field">Description:</label>
+  <input
+  type="text"
+  name="description"
+  id="description-field"
+  />
+
+<br>
+
+  <label for="wholesale-supplier-field">Select a Wholesale Supplier:</label>
+  <select name="wholesaler_name" id="wholesaler-name">
+  <% wholesalers = Wholesaler.all %>
+  <% wholesalers.each do |wholesaler| %>
+    <option value=""><%= wholesaler.wholesaler_name %></option>
+    <% end %>
+  </select>
+
+
+
+<br>
+
+<label for="supply-price-field">Supply Price:</label>
+<input
+type="number"
+step="0.01"
+name="supply_price"
+id="supply-price-field"
+/>
+
+<br>
+
+
+  <label for="customer-price-field">Customer Price:</label>
+  <input
+  type="number"
+  step="0.01"
+  name="customer_price"
+  id="customer-price-field"
+  />
+
+<br>
+
+
+
+<br>
+
+
+  <input type="submit" value="Add New Supply Product">
+
+</form>
