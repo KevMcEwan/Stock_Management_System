@@ -89,9 +89,6 @@ class Stock_supply
     return Product.new(result).description
   end
 
-  # def supply_price
-  #   sql = "SELECT supply_price FROM  WHERE id = $1"
-  #   values = [@product_id]
 
 
 end

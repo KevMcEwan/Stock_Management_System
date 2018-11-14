@@ -17,15 +17,6 @@ class Product
   end
 
 
-
-  def low_stock
-    result = @quantity.to_f/@desired_quantity.to_f
-    if result.round(2) < 0.10
-    else
-      return "Quantity acceptable"
-    end
-  end
-
   def save()
       sql = "INSERT INTO products
       (name, description, quantity, customer_price, product_type, desired_quantity)
@@ -71,12 +62,6 @@ class Product
       SqlRunner.run(sql, values)
   end
 
-
-  def self.stock_order
-    sql = "SELECT * FROM products WHERE (quantity/desired_quantity) < 0.2"
-    results = SqlRunner.run(sql)
-    return results.map { |product| Product.new(product)}
-  end
 
   def stocked_by_wholesaler
     sql = "SELECT wholesalers.wholesaler_name

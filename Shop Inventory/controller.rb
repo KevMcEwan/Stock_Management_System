@@ -79,21 +79,21 @@ get '/stock_supply/:id' do
   erb( :"/stock_supply/stock_supply_info" )
 end
 
-# get '/stock_supply/:id/edit_stock_supply' do
-#   @stock_supply = Stock_supply.find( params[:id] )
-#   erb( :"stock_supply/edit_stock_supply" )
-# end
-#
-# post '/stock_supply/:id' do
-#   Stock_supply.new(params).update
-#   redirect to '/stock_supply'
-# end
-#
-# post '/stock_supply/:id/delete' do
-#   stock_supply = Stock_supply.find( params[:id] )
-#   stock_supply.delete()
-#   redirect to '/stock_supply'
-# end
+get '/stock_supply/:id/edit_stock_supply' do
+  @stock_supply = Stock_supply.find( params[:id] )
+  erb( :"stock_supply/edit_stock_supply" )
+end
+
+post '/stock_supply/:id' do
+  Stock_supply.new(params).update
+  redirect to '/stock_supply'
+end
+
+post '/stock_supply/:id/delete' do
+  stock_supply = Stock_supply.find( params[:id] )
+  stock_supply.delete()
+  redirect to '/stock_supply'
+end
 
 
 
