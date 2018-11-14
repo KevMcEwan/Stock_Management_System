@@ -74,11 +74,11 @@ post '/stock_supply' do
   redirect to '/stock_supply'
 end
 #
-# get '/stock_supply/:id' do
-#   @stock_supply = Stock_supply.find( params[:id] )
-#   erb( :"/stock_supply/stock_supply_info" )
-# end
-#
+get '/stock_supply/:id' do
+  @stock_supply = Stock_supply.find( params[:id] )
+  erb( :"/stock_supply/stock_supply_info" )
+end
+
 # get '/stock_supply/:id/edit_stock_supply' do
 #   @stock_supply = Stock_supply.find( params[:id] )
 #   erb( :"stock_supply/edit_stock_supply" )
