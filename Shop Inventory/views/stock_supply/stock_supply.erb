@@ -18,13 +18,13 @@
     <th>Profit Margin</th>
   </tr>
   <% @stock_supply.each do |stock_supply| %>
-    <tr>
-      <td><a href="stock_supply/<%=stock_supply.product.id%>" ><%= stock_supply.product.name %></td>
+  <tr>
+    <td><a href="stock_supply/<%=stock_supply.product.id%>" ><%= stock_supply.product.name %></td>
       <td><%= stock_supply.product_description %></td>
       <td><%= result = stock_supply.wholesaler.wholesaler_name %></td>
       <td><%= "£ " '%.2f' % stock_supply.supply_price %></td>
       <td><%= "£ " '%.2f' % stock_supply.customer_price %></td>
       <td><%= '%.2f' % (((stock_supply.customer_price.to_f/stock_supply.supply_price.to_f)-1)*100) %>%</td>
     </tr>
-  <% end %>
-</table>
+    <% end %>
+  </table>

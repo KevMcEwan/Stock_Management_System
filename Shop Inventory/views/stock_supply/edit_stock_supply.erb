@@ -7,46 +7,46 @@
   <select name="product_id" id="product-id">
     <% products = Product.all %>
     <% products.each do |product| %>
-      <option value=<%= product.id %>><%= product.name %></option>
+    <option value=<%= product.id %>><%= product.name %></option>
     <% end %>
   </select>
 
 
-<br>
-<br>
+  <br>
+  <br>
 
-<label for="description-field">Product Description:</label>
-<input
-type="text"
-name="description"
-id="description-field"
-value="<%= @stock_supply.product.description %>"
-/>
+  <label for="description-field">Product Description:</label>
+  <input
+  type="text"
+  name="description"
+  id="description-field"
+  value="<%= @stock_supply.product.description %>"
+  />
 
-<br>
-<br>
+  <br>
+  <br>
 
-<label for="wholesale-id-field">Select a Wholesale Supplier:</label>
-<select name="wholesaler_id" id="wholesaler-id">
-  <% wholesalers = Wholesaler.all %>
-  <% wholesalers.each do |wholesaler| %>
+  <label for="wholesale-id-field">Select a Wholesale Supplier:</label>
+  <select name="wholesaler_id" id="wholesaler-id">
+    <% wholesalers = Wholesaler.all %>
+    <% wholesalers.each do |wholesaler| %>
     <option value=<%= wholesaler.id %>><%= wholesaler.wholesaler_name %></option>
-  <% end %>
-</select>
+    <% end %>
+  </select>
 
-<br>
-<br>
+  <br>
+  <br>
 
-<label for="supply-price-field">Supply Price:</label>
-<input
-type="text"
-name="supply_price"
-id="supply_price-field"
-value="<%= @stock_supply.supply_price %>"
-/>
+  <label for="supply-price-field">Supply Price:</label>
+  <input
+  type="text"
+  name="supply_price"
+  id="supply_price-field"
+  value="<%= @stock_supply.supply_price %>"
+  />
 
-<br>
-<br>
+  <br>
+  <br>
 
 
   <div class="btn-group2">

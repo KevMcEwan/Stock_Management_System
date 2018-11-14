@@ -16,11 +16,11 @@
     <th>Phone</th>
   </tr>
   <% @wholesalers.each do |wholesaler| %>
-    <tr>
-      <td><a href="wholesalers/<%=wholesaler.id%>"  "><%= wholesaler.wholesaler_name %></a></td>
-      <td><%= wholesaler.contact_name %></td>
-      <td><%= wholesaler.email %></td>
-      <td><%= wholesaler.phone %></td>
-    </tr>
+  <tr>
+    <td><a href="wholesalers/<%=wholesaler.id%>"  "><%= wholesaler.wholesaler_name %></a></td>
+    <td><%= wholesaler.contact_name %></td>
+    <td><%= wholesaler.email %></td>
+    <td><%= wholesaler.phone %></td>
+  </tr>
   <% end %>
 </table>

@@ -43,10 +43,10 @@
   </tr>
   <% result = @product.stock_supply %>
   <% result.each do |stock_supply| %>
-    <tr>
-      <td><%= stock_supply.wholesaler.wholesaler_name %></td>
-      <td><%= "£ " '%.2f' % stock_supply.supply_price %></td>
-      <td><%= '%.2f' % (((stock_supply.customer_price.to_f/stock_supply.supply_price.to_f)-1)*100) %>%</td>
+  <tr>
+    <td><%= stock_supply.wholesaler.wholesaler_name %></td>
+    <td><%= "£ " '%.2f' % stock_supply.supply_price %></td>
+    <td><%= '%.2f' % (((stock_supply.customer_price.to_f/stock_supply.supply_price.to_f)-1)*100) %>%</td>
   </tr>
   <% end %>
 </table>

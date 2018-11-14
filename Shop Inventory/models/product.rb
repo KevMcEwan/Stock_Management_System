@@ -18,14 +18,14 @@ class Product
 
 
   def save()
-      sql = "INSERT INTO products
-      (name, description, quantity, customer_price, product_type, desired_quantity)
-      VALUES
-      ($1, $2, $3, $4, $5, $6)
-      RETURNING id"
-      values = [@name, @description, @quantity, @customer_price, @product_type, @desired_quantity]
-      results = SqlRunner.run(sql, values)
-      @id = results.first['id'].to_i
+    sql = "INSERT INTO products
+    (name, description, quantity, customer_price, product_type, desired_quantity)
+    VALUES
+    ($1, $2, $3, $4, $5, $6)
+    RETURNING id"
+    values = [@name, @description, @quantity, @customer_price, @product_type, @desired_quantity]
+    results = SqlRunner.run(sql, values)
+    @id = results.first['id'].to_i
   end
 
   def self.delete_all()
@@ -55,13 +55,18 @@ class Product
   end
 
   def update
-      sql = "UPDATE products SET (name, description, quantity, customer_price, product_type, desired_quantity) =
-      ($1, $2, $3, $4, $5, $6)
-      WHERE id = $7"
-      values = [@name, @description, @quantity, @customer_price, @product_type, @desired_quantity, @id]
-      SqlRunner.run(sql, values)
+    sql = "UPDATE products SET (name, description, quantity, customer_price, product_type, desired_quantity) =
+    ($1, $2, $3, $4, $5, $6)
+    WHERE id = $7"
+    values = [@name, @description, @quantity, @customer_price, @product_type, @desired_quantity, @id]
+    SqlRunner.run(sql, values)
   end
 
+  def self.stock_order
+    sql = "SELECT * FROM products WHERE (quantity/desired_quantity) < 0.2"
+    results = SqlRunner.run(sql)
+    return results.map { |product| Product.new(product)}
+  end
 
   def stocked_by_wholesaler
     sql = "SELECT wholesalers.wholesaler_name

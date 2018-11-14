@@ -1,8 +1,8 @@
 <br>
 
-<form method="post" action="/products/<%= @product.id %>">
+<form method="post" action="/products/<%= @product.id %>"><br>
 
-  <label for="name-field">Name:</label>
+  <label for="name-field">Name:</label><br>
   <input
   type="text"
   name="name"
@@ -10,9 +10,9 @@
   value="<%= @product.name %>"
   />
 
-<br>
-
-  <label for="description-field">Description:</label>
+  <br>
+  <br>
+  <label for="description-field">Description:</label><br>
   <input
   type="text"
   name="description"
@@ -21,8 +21,9 @@
   />
 
   <br>
+  <br>
 
-  <label for="quantity-field">Quantity:</label>
+  <label for="quantity-field">Quantity:</label><br>
   <input
   type="number"
   name="quantity"
@@ -31,9 +32,9 @@
   />
 
   <br>
+  <br>
 
-
-  <label for="customer-price-field">Customer Price:</label>
+  <label for="customer-price-field">Customer Price:</label><br>
   <input
   type="number"
   step="0.01"
@@ -43,8 +44,9 @@
   />
 
   <br>
+  <br>
 
-  <label for="product-type-field">Select a Product Type:</label>
+  <label for="product-type-field">Select a Product Type:</label><br>
   <select name="product_type" id="product-type">
     <option value="Grocery"<%="selected" if @product.product_type == "Grocery"%>>Grocery</option>
     <option value="Fresh Foods"<%="selected" if @product.product_type == "Fresh Foods"%>>Fresh Foods</option>
@@ -54,8 +56,9 @@
   </select>
 
   <br>
+  <br>
 
-  <label for="desired-quantity-field">Desired Quantity:</label>
+  <label for="desired-quantity-field">Desired Quantity:</label><br>
   <input
   type="number"
   name="desired_quantity"
@@ -63,15 +66,15 @@
   value="<%= @product.desired_quantity.round(0) %>"
   />
 
-<br>
-<br>
+  <br>
+  <br>
 
 
 
-<div class="btn-group2">
-  <form type="submit">
+  <div class="btn-group2">
+    <form type="submit">
       <button>Update Product</button>
-  <form>
-</div>
+      <form>
+      </div>
 
-</form>
+    </form>

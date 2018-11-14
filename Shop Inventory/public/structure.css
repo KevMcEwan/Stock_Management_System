@@ -1,7 +1,10 @@
-body {
-  background: black url('/images/shelves.jpg');
-  background-size: 100%;
+ body {
+  background-size: cover;
   background-repeat: no-repeat;
   padding: 0px;
   margin: 0px;
 }
+
+/* .background-image {
+  height:100vh;
+} */

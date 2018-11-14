@@ -2,9 +2,9 @@ require_relative('../db/sql_runner')
 
 class Wholesaler
 
-attr_reader :id
+  attr_reader :id
 
-attr_accessor :wholesaler_name, :contact_name, :email, :phone
+  attr_accessor :wholesaler_name, :contact_name, :email, :phone
 
   def initialize( options )
     @id = options['id'].to_i
