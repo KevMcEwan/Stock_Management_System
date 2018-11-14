@@ -11,22 +11,22 @@ Wholesaler.delete_all()
 
 product1 = Product.new({
   "name" => "Heinz Baked Beans", "description" => "420g tin",
-  "quantity" => "1", "customer_price" => "0.30", "product_type" => "grocery", "desired_quantity" => "15"})
+  "quantity" => "1", "customer_price" => "0.30", "product_type" => "Grocery", "desired_quantity" => "15"})
 product1.save()
 
 product2 = Product.new({
   "name" => "Andrex Toilet roll", "description" => "4 pack",
-  "quantity" => "10", "customer_price" => "3.00", "product_type" => "non-food", "desired_quantity" => "10"})
+  "quantity" => "10", "customer_price" => "3.00", "product_type" => "Non-food", "desired_quantity" => "10"})
 product2.save()
 
 product3 = Product.new({
   "name" => "Famous Grouse", "description" => "70 cl bottle",
-  "quantity" => "3", "customer_price" => "12.00", "product_type" => "alcohol", "desired_quantity" => "4"})
+  "quantity" => "3", "customer_price" => "12.00", "product_type" => "Alcohol", "desired_quantity" => "4"})
 product3.save()
 
 product4 = Product.new({
   "name" => "Coca Cola", "description" => "330ml can",
-  "quantity" => "10",  "customer_price" => "0.60", "product_type" => "grocery", "desired_quantity" => "24"})
+  "quantity" => "10",  "customer_price" => "0.60", "product_type" => "Grocery", "desired_quantity" => "24"})
 product4.save()
 
 
@@ -76,3 +76,5 @@ stock_supply8.save
 
 stock_supply9 = Stock_supply.new({"product_id" => product3.id, "wholesaler_id" => wholesaler3.id, "supply_price" => "9.50"})
 stock_supply9.save
+
+p Product.product_type_filter("Grocery")

@@ -95,6 +95,16 @@ class Product
   end
 
 
+  def self.product_type_filter(product_type)
+    sql = "SELECT * FROM products
+    WHERE product_type = $1"
+    values = [product_type]
+    results = SqlRunner.run( sql, values )
+    return results.map { |product| Product.new(product)}
+  end
+
+
+
 
 
 end

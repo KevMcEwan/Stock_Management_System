@@ -21,7 +21,7 @@
   <tr>
     <td><a href="products/<%=product.id%>"  "><%= product.name %></a></td>
     <td><%= product.description %></td>
-    <td><%= product.product_type %></td>
+    <td><a href="products?filter=<%=product.product_type %>"><%= product.product_type %></a></td>
     <td><%= product.quantity.round(0) %></td>
     <td><%= product.desired_quantity.round(0) %></td>
     <td><%= "£ " '%.2f' % product.customer_price %></td>

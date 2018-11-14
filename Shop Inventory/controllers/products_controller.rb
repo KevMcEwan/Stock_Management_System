@@ -12,7 +12,12 @@ get '/' do
 end
 
 get '/products' do
-  @products = Product.all
+  product_type_to_search_for = params['filter']
+  if ( !product_type_to_search_for )
+    @products = Product.all
+  elsif
+    @products = Product.product_type_filter(product_type_to_search_for)
+  end
   erb( :"products/products")
 end
 
@@ -21,10 +26,7 @@ get '/products/re-stock_required' do
   erb( :"products/re-stock_required")
 end
 
-get '/products/profit_margin' do
-  @products = Product.all
-  erb( :"products/profit_margin")
-end
+
 
 get '/products/add_new_product' do
   erb( :"products/add_new_product" )
@@ -39,6 +41,11 @@ end
 get '/products/:id' do
   @product = Product.find( params[:id] )
   erb( :"/products/productinfo" )
+end
+
+get '/products/:product_type' do
+  @product = Product.find(params[:product_type])
+  erb( :"/products/product_type_list" )
 end
 
 get '/products/:id/editproduct' do
