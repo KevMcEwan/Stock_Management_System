@@ -3,34 +3,32 @@
 <form method="post" action="/stock_supply">
 
   <label for="product-id-field">Select a Product:</label><br>
-  <select name="product_name" id="product-id">
-  <% products = Product.all %>
-  <% products.each do |product| %>
-    <option value=<% product.id %>><%= product.name %></option>
+  <select name="product_id" id="product-id">
+    <% products = Product.all %>
+    <% products.each do |product| %>
+      <option value=<%= product.id %>><%= product.name %></option>
     <% end %>
   </select>
 
 <br>
 <br>
 
-
-<!-- <label for="product-description-field">Select a Product Description:</label>
-<select name="product_description" id="product-description">
-<% products = Product.all %>
-<% products.each do |product| %>
-  <option value=<% product.id %>><%= product.description %></option>
+<label for="product-id-field">Select a description:</label><br>
+<select name="product_id" id="product-id">
+  <% products = Product.all %>
+  <% products.each do |product| %>
+    <option value=<%= product.id %>><%= product.description %></option>
   <% end %>
-</select> -->
-
+</select>
 
 <br>
 <br>
 
   <label for="wholesale-id-field">Select a Wholesale Supplier:</label><br>
-  <select name="wholesaler_name" id="wholesaler-id">
-  <% wholesalers = Wholesaler.all %>
-  <% wholesalers.each do |wholesaler| %>
-    <option value=<% wholesaler.id %>><%= wholesaler.wholesaler_name %></option>
+  <select name="wholesaler_id" id="wholesaler-id">
+    <% wholesalers = Wholesaler.all %>
+    <% wholesalers.each do |wholesaler| %>
+      <option value=<%= wholesaler.id %>><%= wholesaler.wholesaler_name %></option>
     <% end %>
   </select>
 
@@ -38,39 +36,23 @@
 <br>
 <br>
 
-<label for="supply-price-field">Supply Price:</label><br>
-<input
-type="number"
-step="0.01"
-name="supply_price"
-id="supply-price-field"
-/>
+  <label for="supply-price-field">Supply Price:</label><br>
+  <input
+    type="number"
+    step="0.01"
+    name="supply_price"
+    id="supply-price-field"
+    />
 
 <br>
-
-<!-- <label for="customer-price-field">Select a Customer Price:</label>
-<select name="customer_price" id="customer-price">
-<% products = Product.all %>
-<% products.each do |product| %>
-  <option value=<% product.id %>><%= product.customer_price %></option>
-  <% end %>
-</select> -->
-
-
+<br>
 <br>
 
-
-
-<br>
-
-<div class="btn-group2">
-  <form type="submit">
+  <div class="btn-group2">
+    <form type="submit">
       <button>Add New Supply Product</button>
-  <form>
-</div>
-
-</form>
-
+    </form>
+  </div>
 
 
 </form>

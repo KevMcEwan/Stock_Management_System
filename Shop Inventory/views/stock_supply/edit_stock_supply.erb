@@ -1,0 +1,23 @@
+<br>
+
+<form method="post" action="/stock_supply/<%= @stock_supply.id %>">
+
+  <label for="name-field">Name:</label>
+  <input
+  type="text"
+  name="name"
+  id="name-field"
+  value="<% @stock_supply.product.name %>"
+
+  />
+
+
+
+  <div class="btn-group2">
+    <form type="submit">
+      <button>Update Supply Product</button>
+    </form>
+  </div>
+
+
+</form>
