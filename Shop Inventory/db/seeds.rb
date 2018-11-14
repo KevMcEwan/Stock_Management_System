@@ -77,4 +77,4 @@ stock_supply8.save
 stock_supply9 = Stock_supply.new({"product_id" => product3.id, "wholesaler_id" => wholesaler3.id, "supply_price" => "9.50"})
 stock_supply9.save
 
-p Product.product_type_filter("Grocery")
+p wholesaler1.stock_supply

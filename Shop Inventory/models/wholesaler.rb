@@ -77,6 +77,12 @@ class Wholesaler
     return result.map { |product| Product.new(product) }
   end
 
+  def stock_supply
+    sql = "SELECT stock_supply.* FROM stock_supply WHERE wholesaler_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return result.map { |stock_supply| Stock_supply.new(stock_supply)}
+  end
 
 
 

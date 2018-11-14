@@ -27,4 +27,22 @@
     <td><%= @wholesaler.email %></td>
     <td><%= @wholesaler.phone %></td>
   </tr>
+</table><br>
+
+<table cellpadding=5px>
+  <tr>
+    <th>Product Name</th>
+    <th>Description</th>
+    <th>Product Type</th>
+    <th>Supply Price</th>
+  </tr>
+  <% result = @wholesaler.stock_supply %>
+  <% result.each do |stock_supply| %>
+  <tr>
+    <td><%= stock_supply.product.name %></td>
+    <td><%= stock_supply.product_description %></td>
+    <td><%= stock_supply.product.product_type %></td>
+    <td><%= "£ " '%.2f' % stock_supply.supply_price %></td>
+  </tr>
+  <% end %>
 </table>
