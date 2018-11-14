@@ -1,3 +1,7 @@
 h1, h2 {font-family: arial}
 
-p, h3 {font-family: helvetica}
+p, h3 {font-family: helvetica;}
+
+label {font-family: helvetica;}
+
+footer {position: relative;}

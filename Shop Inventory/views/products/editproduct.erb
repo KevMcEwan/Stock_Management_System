@@ -9,6 +9,8 @@
   value="<%= @product.name %>"
   />
 
+<br>
+
   <label for="description-field">Description:</label>
   <input
   type="text"
@@ -17,6 +19,8 @@
   value="<%= @product.description %>"
   />
 
+  <br>
+
   <label for="quantity-field">Quantity:</label>
   <input
   type="number"
@@ -24,6 +28,8 @@
   id="quantity-field"
   value="<%= @product.quantity.round(0) %>"
   />
+
+  <br>
 
 
   <label for="customer-price-field">Customer Price:</label>
@@ -35,6 +41,8 @@
   value="<%= @product.customer_price %>"
   />
 
+  <br>
+
   <label for="product-type-field">Select a Product Type:</label>
   <select name="product_type" id="product-type">
     <option value="Grocery"<%="selected" if @product.product_type == "Grocery"%>>Grocery</option>
@@ -44,6 +52,7 @@
     <option value="Alcohol"<%="selected" if @product.product_type == "Alcohol"%>>Alcohol</option>
   </select>
 
+  <br>
 
   <label for="desired-quantity-field">Desired Quantity:</label>
   <input
@@ -53,7 +62,15 @@
   value="<%= @product.desired_quantity.round(0) %>"
   />
 
+<br>
+<br>
 
 
-  <input type='submit' value="Update Product">
+
+<div class="btn-group2">
+  <form type="submit">
+      <button>Update Product</button>
+  <form>
+</div>
+
 </form>

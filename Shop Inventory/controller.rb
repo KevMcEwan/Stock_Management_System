@@ -67,12 +67,12 @@ end
 get '/stock_supply/add_new_supply_product' do
   erb( :"stock_supply/add_new_supply_product" )
 end
-#
-# post '/stock_supply' do
-#   @stock_supply = Stock_supply.new( params )
-#   @stock_supply.save
-#   redirect to '/stock_supply'
-# end
+
+post '/stock_supply' do
+  @stock_supply = Stock_supply.new( params )
+  @stock_supply.save
+  redirect to '/stock_supply'
+end
 #
 # get '/stock_supply/:id' do
 #   @stock_supply = Stock_supply.find( params[:id] )

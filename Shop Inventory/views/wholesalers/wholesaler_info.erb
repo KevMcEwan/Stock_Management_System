@@ -2,6 +2,17 @@
 
 <h1>Wholesaler Information: <%= @wholesaler.wholesaler_name %></h1>
 
+<div class="btn-group2">
+  <form method="get" action="/wholesalers/<%= @wholesaler.id %>/editwholesaler">
+    <button>Edit Wholesaler</button>
+  </form>
+
+  <form method="post" action="/wholesalers/<%= @wholesaler.id %>/delete">
+    <button>Delete Wholesaler</button>
+  </form>
+</div>
+
+<br>
 
 <table>
   <tr>
@@ -17,13 +28,3 @@
     <td><%= @wholesaler.phone %></td>
   </tr>
 </table>
-
-<br>
-<form method="get" action="/wholesalers/<%= @wholesaler.id %>/editwholesaler">
-  <button>Edit Wholesaler</button>
-</form>
-
-<br>
-<form method="post" action="/wholesalers/<%= @wholesaler.id %>/delete">
-  <button>Delete Wholesaler</button>
-</form>
