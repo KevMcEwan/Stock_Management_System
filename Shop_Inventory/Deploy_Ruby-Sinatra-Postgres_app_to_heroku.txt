@@ -12,3 +12,5 @@ Gemfile.lock
 config.ru
   require '.SOMETHING IN HERE'
   run Sinatra::Application
+
+To appease git
