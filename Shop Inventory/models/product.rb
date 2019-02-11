@@ -34,7 +34,7 @@ class Product
   end
 
   def self.all
-    sql = "SELECT * FROM products"
+    sql = "SELECT * FROM products ORDER BY quantity DESC"
     results = SqlRunner.run( sql )
     return results.map { |product| Product.new( product ) }
   end
@@ -101,6 +101,13 @@ class Product
     values = [product_type]
     results = SqlRunner.run( sql, values )
     return results.map { |product| Product.new(product)}
+  end
+
+  def self.sort_by_quantity
+    sql = "SELECT * FROM products
+    ORDER BY quantity DESC"
+    results = SqlRunner.run(sql)
+    return results.map { |product| Product.new(product) }
   end
 
 

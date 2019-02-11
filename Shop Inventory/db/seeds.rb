@@ -32,6 +32,7 @@ product4.save()
 
 
 
+
 wholesaler1 = Wholesaler.new({
   "wholesaler_name" => "Booker", "supplies_type" => "Processed foods", "contact_name" => "Mike", "email" => "Mike@Booker", "phone" => "0207 345 678"
   })
