@@ -1,0 +1,14 @@
+Deploying Ruby/Sinatra/Postgres app to Heroku
+
+root folder must have.
+
+Gemfile (no extension, capital G required) - specify what Gems are required to run app
+  source 'https://rubygems.org'
+  gem 'sinatra'
+
+
+Gemfile.lock
+
+config.ru
+  require '.SOMETHING IN HERE'
+  run Sinatra::Application
